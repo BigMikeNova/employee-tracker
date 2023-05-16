@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const db = require('./db');
+const db = require('./db/connection');
+const department = require('./models/department');
 
 // Function to start the application
 function startApp() {
@@ -25,15 +26,15 @@ function startApp() {
     .then((answers) => {
       switch (answers.action) {
         case 'View all departments':
-          db.viewAllDepartments();
+          department.viewAllDepartments();
           startApp();
           break;
         case 'View all roles':
-          db.viewAllRoles();
+          models.viewAllRoles();
           startApp();
           break;
         case 'View all employees':
-          db.viewAllEmployees();
+          models.viewAllEmployees();
           startApp();
           break;
         case 'Add a department':
